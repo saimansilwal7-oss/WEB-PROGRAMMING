@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colour Swatch Card</title>
+
+  <style>
+    .swatch-container {
+      display: flex;
+      gap: 12px;
+    }
+
+    .swatch {
+      padding: 30px 20px;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+
+    .purple {
+      background-color: #7c3aed;
+    }
+
+    .blue {
+      background-color: #0369a1;
+    }
+
+    .green {
+      background-color: #15803d;
+    }
+
+    .red {
+      background-color: #dc2626;
+    }
+
+    .orange {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="swatch-container">
+    <div class="swatch purple">#7C3AED</div>
+    <div class="swatch blue">#0369A1</div>
+    <div class="swatch green">#15803D</div>
+    <div class="swatch red">#DC2626</div>
+    <div class="swatch orange">#EA580C</div>
+  </div>
+
+</body>
+</html>
