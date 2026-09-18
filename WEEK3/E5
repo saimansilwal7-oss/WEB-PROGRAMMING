@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+body{
+  font-family:sans-serif
+  # ERROR 1: Missing semicolon above
+  background-color:#f0fdf4;
+}
+h1{
+  color = #15803d;
+  # ERROR 2: Use : instead of =
+  font-size:2rem;
+  text-align center;
+  # ERROR 3: Missing : after text-align
+}
+p{
+  line-height:1.7;
+  foreground:#334155;
+  # ERROR 4: "foreground" is not a CSS property; use "color"
+}
+# ERROR 5: // is not valid CSS comment syntax; use /* */
+.highlight{
+  background-color:#dcfce7;
+}
+</style>
+</head>
+<body>
+<h1>Fix Me!</h1>
+<p>This paragraph has <span class="highlight">broken CSS</span> around it.</p>
+</body>
+</html>
