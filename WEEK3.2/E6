@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Grid Cards</title>
+<style>
+:root{
+--primary:teal;
+--accent:#14b8a6;
+--bg:#f0fdfa;
+--card:#ffffff;
+--text:#134e4a;
+--radius:12px;
+--space:20px;
+}
+*{box-sizing:border-box;}
+body{
+margin:0;
+padding:var(--space);
+background:var(--bg);
+color:var(--text);
+font-family:Arial,sans-serif;
+}
+.grid{
+display:grid;
+grid-template-columns:1fr;
+gap:var(--space);
+}
+.card{
+position:relative;
+background:var(--card);
+border:2px solid var(--primary);
+border-radius:var(--radius);
+padding:40px var(--space) var(--space);
+transition:transform .3s ease,box-shadow .3s ease;
+}
+.card::before{
+content:"✨";
+position:absolute;
+top:15px;
+left:20px;
+font-size:24px;
+}
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 20px rgba(0,128,128,.3);
+}
+@media (min-width:640px){
+.grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (prefers-color-scheme:dark){
+:root{
+--primary:#5eead4;
+--accent:#2dd4bf;
+--bg:#0f2927;
+--card:#163b38;
+--text:#ccfbf1;
+}
+}
+</style>
+</head>
+<body>
+<h1>My Skills</h1>
+<div class="grid">
+<div class="card"><h2>💻 Programming</h2><p>I enjoy learning programming and building projects.</p></div>
+<div class="card"><h2>🎮 Gaming</h2><p>Gaming is one of my favourite hobbies.</p></div>
+<div class="card"><h2>🎨 Creativity</h2><p>I like creating new ideas and designs.</p></div>
+</div>
+</body>
+</html>
