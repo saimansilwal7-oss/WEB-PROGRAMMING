@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Variables Page</title>
+<style>
+:root{
+--primary:teal;
+--accent:#14b8a6;
+--bg:#f0fdfa;
+--text:#134e4a;
+--radius:12px;
+--space:20px;
+}
+*{box-sizing:border-box;}
+body{
+margin:0;
+padding:var(--space);
+background:var(--bg);
+color:var(--text);
+font-family:Arial,sans-serif;
+}
+.card{
+background:var(--bg);
+border:2px solid var(--primary);
+border-radius:var(--radius);
+padding:var(--space);
+margin-bottom:var(--space);
+}
+button{
+background:var(--primary);
+color:var(--bg);
+border:0;
+border-radius:var(--radius);
+padding:calc(var(--space)/2) var(--space);
+cursor:pointer;
+}
+h1{color:var(--primary);}
+@media (prefers-color-scheme:dark){
+:root{
+--primary:#5eead4;
+--accent:#2dd4bf;
+--bg:#0f2927;
+--text:#ccfbf1;
+}
+}
+</style>
+</head>
+<body>
+<h1>CSS Variables</h1>
+<div class="card">
+<h2>My Card</h2>
+<p>This page uses CSS variables for colours and spacing.</p>
+<button>Click Me</button>
+</div>
+</body>
+</html>
