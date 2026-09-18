@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hover Card</title>
+<style>
+.card{
+width:280px;
+height:180px;
+background:white;
+border-radius:12px;
+padding:20px;
+box-shadow:0 4px 10px rgba(0,0,0,0.15);
+transition:transform 0.3s ease,box-shadow 0.3s ease;
+}
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 25px rgba(0,128,128,0.4);
+}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Hover Me</h2>
+<p>This card lifts up and shows a coloured shadow.</p>
+</div>
+</body>
+</html>
