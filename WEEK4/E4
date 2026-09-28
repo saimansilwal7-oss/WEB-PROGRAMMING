@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Search</title>
+<style>
+body{font-family:Arial;background:#f1f5f9;padding:30px}
+.container{max-width:500px;margin:auto;background:white;padding:20px;border-radius:10px}
+input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #ccc;border-radius:6px;font-size:16px;margin-bottom:15px}
+.student{padding:12px;background:#f1f5f9;margin:6px 0;border-radius:6px}
+mark{background:yellow}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>🔍 Student Search</h2>
+<input type="text" id="searchBox" placeholder="Search students...">
+<div class="student">Saiman Silwal</div>
+<div class="student">Sushant Thapa</div>
+<div class="student">Sajit Gurung</div>
+<div class="student">Sheikh Ahmed</div>
+<div class="student">Suraj Lama</div>
+<div class="student">Pramish Shrestha</div>
+</div>
+<script>
+const searchBox=document.querySelector('#searchBox');
+const students=document.querySelectorAll('.student');
+
+searchBox.addEventListener('input',function(e){
+  const term=e.target.value.toLowerCase();
+  students.forEach(student=>{
+    const name=student.textContent;
+    const lowerName=name.toLowerCase();
+    if(lowerName.includes(term)){
+      student.style.display='block';
+      if(term){
+        const index=lowerName.indexOf(term);
+        student.innerHTML=name.slice(0,index)+'<mark>'+name.slice(index,index+term.length)+'</mark>'+name.slice(index+term.length);
+      }else{
+        student.textContent=name;
+      }
+    }else{
+      student.style.display='none';
+    }
+  });
+});
+</script>
+</body>
+</html>
