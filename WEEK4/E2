@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile Card</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.card {
+  width: 300px;
+  padding: 25px;
+  text-align: center;
+  background: white;
+  color: #222;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px #aaa;
+}
+
+.card.dark {
+  background: #222;
+  color: white;
+}
+
+button {
+  padding: 10px 15px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="profileCard">
+  <h2>Saiman Silwal</h2>
+  <p>Computer Engineering Student</p>
+  <p>I love coding, anime and gaming.</p>
+  <button id="toggleBtn">🌙 Dark Mode</button>
+</div>
+
+<script>
+const card = document.querySelector('#profileCard');
+const toggleButton = document.querySelector('#toggleBtn');
+
+toggleButton.addEventListener('click', function() {
+  card.classList.toggle('dark');
+
+  if (card.classList.contains('dark')) {
+    toggleButton.textContent = '☀️ Light Mode';
+  } else {
+    toggleButton.textContent = '🌙 Dark Mode';
+  }
+});
+</script>
+
+</body>
+</html>
