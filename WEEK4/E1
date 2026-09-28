@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Click Counter</title>
+<style>
+button {
+  padding: 12px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.done {
+  background: green;
+}
+</style>
+</head>
+<body>
+
+<h2>Click Counter</h2>
+<button id="clickBtn">Click Me</button>
+<p>Clicks: <span id="counter">0</span></p>
+<p id="message"></p>
+
+<script>
+const button = document.querySelector('#clickBtn');
+const counter = document.querySelector('#counter');
+const message = document.querySelector('#message');
+
+let clicks = 0;
+
+button.addEventListener('click', function() {
+  clicks++;
+  counter.textContent = clicks;
+
+  if (clicks === 5) {
+    button.classList.add('done');
+    message.textContent = '🎉 Congratulations! You clicked 5 times!';
+  }
+});
+</script>
+
+</body>
+</html>
