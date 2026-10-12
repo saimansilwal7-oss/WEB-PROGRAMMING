@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops Example</title>
+</head>
+<body>
+    <h1>JavaScript Loops</h1>
+    <button onclick="runLoops()">Run Loops</button>
+    <h2>Output:</h2>
+    <pre id="output">Click the button to run the loops.</pre>
+    <script>
+        function runLoops() {
+            let output = "";
+            // Repeat 5 times
+            for (let i = 1; i <= 5; i++) {
+                output += "Step " + i + "\n";
+            }
+            output += "\nFruits:\n";
+            // Loop through an array
+            let fruits = ["apple", "banana", "cherry"];
+            for (let fruit of fruits) {
+                output += fruit + "\n";
+            }
+            document.getElementById("output").textContent = output;
+            console.log(output);
+        }
+    </script>
+</body>
+</html>
