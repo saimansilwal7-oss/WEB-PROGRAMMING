@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 6.1 | Random Joke Fetcher</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <p class="eyebrow">WEB PROGRAMMING · WEEK 6.1</p>
+      <h1>Random Joke <span>Fetcher</span></h1>
+      <p class="intro">A little humour, delivered with the Fetch API and async/await.</p>
+    </header>
+
+    <section class="joke-card" aria-labelledby="joke-heading">
+      <div class="card-top">
+        <span class="tag">TODAY'S LAUGH</span>
+        <span class="sparkle" aria-hidden="true">✦</span>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite">Press the button to get a joke.</div>
+      <div id="spinner" class="spinner hidden" aria-label="Loading" role="status"></div>
+      <div class="joke-content">
+        <h2 id="setup">Ready for a joke?</h2>
+        <p id="punchline">Click “Get a Joke” and let the API do its thing.</p>
+      </div>
+      <p id="error-message" class="error hidden" role="alert"></p>
+      <div class="actions">
+        <button id="joke-button" class="primary-button" type="button" onclick="loadJoke()">↻ Get a Joke</button>
+        <button id="favourite-button" class="secondary-button" type="button" disabled>♡ Save Favourite</button>
+      </div>
+    </section>
+
+    <section class="favourites-card" aria-labelledby="favourites-heading">
+      <div class="favourites-heading">
+        <div>
+          <p class="eyebrow">YOUR COLLECTION</p>
+          <h2 id="favourites-heading">Favourite jokes</h2>
+        </div>
+        <span id="favourite-count" class="count">0 saved</span>
+      </div>
+      <p id="empty-favourites" class="empty-state">Your saved jokes will appear here. They stay saved in this browser.</p>
+      <ul id="favourites-list" class="favourites-list"></ul>
+    </section>
+    <footer>Made for WebPro · Fetch API + async/await + localStorage</footer>
+  </main>
+</body>
+</html>
