@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #e0e7ff, #f5f3ff);
+      color: #1f2937;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 28px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.12);
+    }
+    h1 { margin: 0 0 8px; text-align: center; color: #4338ca; }
+    .intro { margin: 0 0 24px; text-align: center; color: #6b7280; }
+    fieldset {
+      margin: 0 0 22px;
+      padding: 20px;
+      border: 1px solid #c7d2fe;
+      border-radius: 10px;
+    }
+    legend { padding: 0 8px; font-weight: bold; color: #4338ca; }
+    .form-group { margin-bottom: 17px; }
+    label { display: block; margin-bottom: 7px; font-weight: 600; }
+    input:not([type="checkbox"]):not([type="range"]), select {
+      width: 100%;
+      padding: 11px 12px;
+      border: 2px solid #d1d5db;
+      border-radius: 7px;
+      font: inherit;
+      background: #fff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+    }
+    /* Validation styles: avoid showing an error before the user starts typing. */
+    input:valid:not(:placeholder-shown) { border-color: #16a34a; }
+    input:invalid:not(:placeholder-shown) { border-color: #dc2626; }
+    input:invalid:focus:not(:placeholder-shown) { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12); }
+    select:valid { border-color: #16a34a; }
+    select:invalid { border-color: #d1d5db; }
+    .hint { margin: 6px 0 0; color: #6b7280; font-size: 0.86rem; }
+    .range-line { display: flex; align-items: center; gap: 14px; }
+    input[type="range"] { width: 100%; accent-color: #4f46e5; }
+    output {
+      min-width: 42px;
+      padding: 6px 10px;
+      text-align: center;
+      font-weight: bold;
+      color: #4338ca;
+      background: #eef2ff;
+      border-radius: 7px;
+    }
+    .terms { display: flex; align-items: center; gap: 10px; margin: 8px 0 20px; }
+    .terms label { margin: 0; font-weight: normal; }
+    .terms input { width: 18px; height: 18px; accent-color: #4f46e5; }
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      background: #4f46e5;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #3730a3; }
+    .note { margin: 14px 0 0; color: #6b7280; font-size: 0.82rem; text-align: center; }
+    @media (max-width: 480px) {
+      .container { padding: 20px 16px; }
+      fieldset { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Student Registration</h1>
+    <p class="intro">Fill in the form below to register as a student.</p>
+
+    <form action="/register" method="post">
+      <fieldset>
+        <legend>Personal Info</legend>
+
+        <div class="form-group">
+          <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="full-name" name="fullName" placeholder="Enter your full name" autocomplete="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="student-id">Student ID <span aria-hidden="true">*</span></label>
+          <input type="text" id="student-id" name="studentId" placeholder="9 digits" pattern="\d{9}" title="Enter exactly 9 digits." inputmode="numeric" required>
+          <p class="hint">Enter exactly 9 digits, with no spaces.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dateOfBirth" autocomplete="bday">
+        </div>
+
+        <div class="form-group">
+          <label for="major">Major <span aria-hidden="true">*</span></label>
+          <select id="major" name="major" required>
+            <option value="" selected disabled>Select your major</option>
+            <option value="computer-engineering">Computer Engineering</option>
+            <option value="computer-science">Computer Science</option>
+            <option value="business">Business Administration</option>
+            <option value="electrical-engineering">Electrical Engineering</option>
+            <option value="mechanical-engineering">Mechanical Engineering</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Account Info</legend>
+
+        <div class="form-group">
+          <label for="email">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" placeholder="student@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password <span aria-hidden="true">*</span></label>
+          <input type="password" id="password" name="password" placeholder="At least 8 characters" minlength="8" autocomplete="new-password" required>
+          <p class="hint">Your password must contain at least 8 characters.</p>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" name="phone" placeholder="010-1234-5678" pattern="\d{3}-\d{4}-\d{4}" title="Use the format 010-1234-5678." inputmode="tel" autocomplete="tel">
+          <p class="hint">Format: 010-1234-5678 (optional).</p>
+        </div>
+
+        <div class="form-group">
+          <label for="coding-years">Years of Coding Experience (0–10)</label>
+          <div class="range-line">
+            <input type="range" id="coding-years" name="codingYears" min="0" max="10" value="0">
+            <output id="coding-value" for="coding-years" aria-live="polite">0</output>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="terms">
+        <input type="checkbox" id="terms" name="terms" value="accepted" required>
+        <label for="terms">I agree to the terms <span aria-hidden="true">*</span></label>
+      </div>
+
+      <button type="submit">Register</button>
+      <p class="note">Fields marked with * are required.</p>
+    </form>
+  </main>
+
+  <script>
+    const codingSlider = document.getElementById("coding-years");
+    const codingValue = document.getElementById("coding-value");
+
+    codingSlider.addEventListener("input", function () {
+      codingValue.value = codingSlider.value;
+      codingValue.textContent = codingSlider.value;
+    });
+  </script>
+</body>
+</html>
