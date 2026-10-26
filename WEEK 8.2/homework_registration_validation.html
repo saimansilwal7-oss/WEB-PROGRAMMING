@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 8.2 - Registration Form Validation</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:30px 15px;font-family:Arial,sans-serif;background:linear-gradient(135deg,#dbeafe,#ede9fe);color:#1e293b}
+.container{max-width:680px;margin:auto;padding:30px;background:#fff;border-radius:16px;box-shadow:0 10px 30px #0002}
+h1{text-align:center;color:#4338ca;margin-top:0}
+.intro{text-align:center;color:#64748b;line-height:1.6}
+fieldset{border:1px solid #c7d2fe;border-radius:10px;padding:20px;margin:22px 0}
+legend{font-weight:bold;color:#4338ca;padding:0 8px}
+.field{margin-bottom:17px}
+label{display:block;font-weight:600;margin-bottom:7px}
+input:not([type=checkbox]){width:100%;padding:12px;border:2px solid #cbd5e1;border-radius:7px;font:inherit}
+input[type=checkbox]{width:18px;height:18px;accent-color:#4f46e5}
+input:focus{outline:3px solid #c7d2fe;border-color:#6366f1}
+input[aria-invalid=true]{border-color:#dc2626;background:#fffafa}
+.error{display:block;min-height:17px;margin-top:5px;color:#dc2626;font-size:13px}
+.terms{display:flex;align-items:center;gap:10px;margin:10px 0 18px}
+.terms label{margin:0;font-weight:normal}
+button{width:100%;padding:13px;border:0;border-radius:8px;background:#4f46e5;color:#fff;font-size:16px;font-weight:bold;cursor:pointer}
+button:hover:not(:disabled){background:#3730a3}
+button:disabled{background:#a5b4fc;cursor:not-allowed}
+#success{display:none;margin-top:20px;padding:15px;border-radius:8px;background:#dcfce7;color:#166534;line-height:1.5}
+#success.show{display:block}
+.note{text-align:center;color:#64748b;font-size:13px}
+@media(max-width:480px){.container{padding:20px 16px}fieldset{padding:15px}}
+</style>
+</head>
+<body>
+<main class="container">
+<h1>Student Registration</h1>
+<p class="intro">Week 8.2 homework: real-time validation, accessible error messages, password confirmation, and submission feedback.</p>
+<form id="registrationForm" action="#" method="post" novalidate>
+<fieldset>
+<legend>Personal Information</legend>
+<div class="field">
+<label for="fullName">Full Name *</label>
+<input id="fullName" name="fullName" type="text" minlength="2" required autocomplete="name" placeholder="Enter your full name" aria-describedby="nameHint nameError" aria-invalid="false">
+<small id="nameHint">Enter at least 2 characters.</small>
+<span class="error" id="nameError" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="email">Email Address *</label>
+<input id="email" name="email" type="email" required autocomplete="email" placeholder="student@example.com" aria-describedby="emailError" aria-invalid="false">
+<span class="error" id="emailError" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="studentId">Student ID *</label>
+<input id="studentId" name="studentId" type="text" pattern="\d{9}" inputmode="numeric" required placeholder="9 digits" aria-describedby="idHint idError" aria-invalid="false">
+<small id="idHint">Enter exactly 9 digits.</small>
+<span class="error" id="idError" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="phone">Phone Number</label>
+<input id="phone" name="phone" type="tel" pattern="\d{3}-\d{4}-\d{4}" placeholder="010-1234-5678" aria-describedby="phoneHint phoneError" aria-invalid="false">
+<small id="phoneHint">Optional. Format: 010-1234-5678.</small>
+<span class="error" id="phoneError" aria-live="polite"></span>
+</div>
+</fieldset>
+<fieldset>
+<legend>Account Information</legend>
+<div class="field">
+<label for="password">Password *</label>
+<input id="password" name="password" type="password" minlength="8" required autocomplete="new-password" placeholder="At least 8 characters" aria-describedby="passwordHint passwordError" aria-invalid="false">
+<small id="passwordHint">Use at least 8 characters.</small>
+<span class="error" id="passwordError" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="confirmPassword">Confirm Password *</label>
+<input id="confirmPassword" name="confirmPassword" type="password" required autocomplete="new-password" placeholder="Re-enter your password" aria-describedby="confirmError" aria-invalid="false">
+<span class="error" id="confirmError" aria-live="polite"></span>
+</div>
+</fieldset>
+<div class="terms">
+<input id="terms" name="terms" type="checkbox" required aria-describedby="termsError" aria-invalid="false">
+<label for="terms">I agree to the terms and conditions. *</label>
+</div>
+<span class="error" id="termsError" aria-live="polite"></span>
+<button id="submitBtn" type="submit" disabled>Register</button>
+<p class="note">The button is enabled only when all required fields are valid.</p>
+<div id="success" role="status" aria-live="polite" tabindex="-1"></div>
+</form>
+</main>
+<script>
+const form = document.getElementById("registrationForm");
+const password = document.getElementById("password");
+const confirmPassword = document.getElementById("confirmPassword");
+const submitBtn = document.getElementById("submitBtn");
+const success = document.getElementById("success");
+const fields = [
+  {input: document.getElementById("fullName"), error: document.getElementById("nameError")},
+  {input: document.getElementById("email"), error: document.getElementById("emailError")},
+  {input: document.getElementById("studentId"), error: document.getElementById("idError")},
+  {input: document.getElementById("phone"), error: document.getElementById("phoneError")},
+  {input: password, error: document.getElementById("passwordError")},
+  {input: confirmPassword, error: document.getElementById("confirmError")},
+  {input: document.getElementById("terms"), error: document.getElementById("termsError")}
+];
+function updatePasswordValidity() {
+  if (!confirmPassword.value) {
+    confirmPassword.setCustomValidity("");
+  } else {
+    confirmPassword.setCustomValidity(confirmPassword.value === password.value ? "" : "Passwords do not match.");
+  }
+}
+function getError(input) {
+  if (input.validity.valueMissing) return input.type === "checkbox" ? "Please accept the terms to continue." : "This field is required.";
+  if (input.validity.typeMismatch) return "Please enter a valid email address.";
+  if (input.validity.tooShort) return "Please enter at least " + input.minLength + " characters.";
+  if (input.validity.patternMismatch) {
+    if (input.id === "studentId") return "Student ID must contain exactly 9 digits.";
+    if (input.id === "phone") return "Use the format 010-1234-5678.";
+    return "Please check the required format.";
+  }
+  if (input.validity.customError) return input.validationMessage;
+  return "";
+}
+function updateForm() {
+  updatePasswordValidity();
+  fields.forEach(({input,error}) => {
+    const message = getError(input);
+    error.textContent = message;
+    input.setAttribute("aria-invalid", String(Boolean(message)));
+  });
+  submitBtn.disabled = !form.checkValidity();
+}
+fields.forEach(({input}) => {
+  input.addEventListener("input", () => {
+    success.classList.remove("show");
+    success.textContent = "";
+    updateForm();
+  });
+  input.addEventListener("change", updateForm);
+});
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  updateForm();
+  if (!form.checkValidity()) {
+    const firstInvalid = fields.find(({input}) => !input.validity.valid);
+    if (firstInvalid) firstInvalid.input.focus();
+    return;
+  }
+  success.textContent = "Registration successful! All fields are valid.";
+  success.classList.add("show");
+  success.focus();
+  form.reset();
+  fields.forEach(({input,error}) => {
+    error.textContent = "";
+    input.setAttribute("aria-invalid", "false");
+  });
+  confirmPassword.setCustomValidity("");
+  submitBtn.disabled = true;
+});
+</script>
+</body>
+</html>
