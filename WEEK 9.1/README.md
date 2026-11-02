@@ -12,6 +12,7 @@
 - `accessibility_audit_report.html` — assignment task page and evidence checklist.
 - `skip_link_demo.html` — working example of a keyboard-accessible skip link.
 - `audit_fixes_checklist.md` — record the actual Lighthouse findings, changes, and scores.
+- `team-project-accessibility-patch.md` — exact changes prepared for the Team 4 repository; apply them there before its final retest.
 - `SCREENSHOTS/` — place the initial and improved Lighthouse screenshots here.
 
 ## Important
