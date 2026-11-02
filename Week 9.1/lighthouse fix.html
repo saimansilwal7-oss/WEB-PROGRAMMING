@@ -1,85 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Accessible sign-up form example with labels, named buttons, contrast, and validation feedback.">
+  <title>Accessible Form Fixes | Week 9.1</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:24px;font:16px/1.6 system-ui,sans-serif;color:#17243a;background:#f3f6fb}.card{width:min(100%,480px);margin:auto;padding:24px;border:1px solid #d8e1ed;border-radius:14px;background:#fff}h1{margin-top:0;font-size:1.8rem}.field{margin:18px 0}.field label{display:block;margin-bottom:6px;font-weight:700}.field input{width:100%;min-height:44px;padding:10px 12px;border:1px solid #64748b;border-radius:7px;font:inherit}.field input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #174a86;outline-offset:3px}.hint{display:block;margin-top:5px;color:#46566d;font-size:.9rem}.error{margin:6px 0;color:#a61b1b;font-size:.9rem}.button-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}button{min-height:44px;padding:10px 18px;border:0;border-radius:7px;background:#174a86;color:#fff;font:inherit;font-weight:700;cursor:pointer}button:hover{background:#123967}.icon-btn{width:44px;padding:0;background:#155e45;font-size:20px}#status{margin-top:16px;padding:12px;border-radius:7px;background:#edf4ff;color:#17243a}#status:empty{display:none}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Create your account</h1>
+    <p>Example of accessible form controls and clear validation messages.</p>
+    <form id="signup-form" novalidate>
+      <div class="field">
+        <label for="email-field">Email address</label>
+        <input id="email-field" name="email" type="email" autocomplete="email" required aria-describedby="email-hint email-error">
+        <span class="hint" id="email-hint">Enter an email address such as name@example.com.</span>
+        <p class="error" id="email-error" hidden>Please enter a valid email address.</p>
+      </div>
+      <div class="field">
+        <label for="password-field">Password</label>
+        <input id="password-field" name="password" type="password" autocomplete="new-password" minlength="8" required aria-describedby="password-hint password-error">
+        <span class="hint" id="password-hint">Use at least 8 characters.</span>
+        <p class="error" id="password-error" hidden>Password must contain at least 8 characters.</p>
+      </div>
+      <div class="button-row">
+        <button class="icon-btn" type="button" aria-label="Show or hide password" aria-pressed="false" id="toggle-password">◉</button>
+        <button type="submit">Create account</button>
+      </div>
+    </form>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <script>
+    "use strict";
+    const form = document.getElementById("signup-form");
+    const email = document.getElementById("email-field");
+    const password = document.getElementById("password-field");
+    const emailError = document.getElementById("email-error");
+    const passwordError = document.getElementById("password-error");
+    const status = document.getElementById("status");
+    const toggle = document.getElementById("toggle-password");
 
-<!DOCTYPE html>
-<html>
-<body style="font-family:system-ui;padding:24px;max-width:400px">
-
-<style>
-  input {
-    width:100%;
-    padding:8px;
-    border:2px solid #ccc;
-    border-radius:6px;
-    font-size:15px;
-    margin-bottom:4px;
-  }
-
-  .error {
-    color:red;
-    font-size:13px;
-  }
-
-  button {
-    padding:8px 16px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-  }
-
-  .icon-btn {
-    background:#1a7f5a;
-    color:white;
-    width:36px;
-    height:36px;
-    font-size:18px;
-    border-radius:50%;
-  }
-
-  .submit-btn {
-    background:#1a56db;
-    color:white;
-    padding:10px 24px;
-    font-size:15px;
-    width:100%;
-    margin-top:8px;
-  }
-
-  a img {
-    display:block;
-    width:80px;
-  }
-</style>
-
-<h2>Sign Up</h2>
-
-<!-- Issue 1: Added accessible name -->
-<button type="button" class="icon-btn" aria-label="Search">
-  🔍
-</button>
-
-<!-- Issue 2: Added label element -->
-<label for="email-field">Email address</label>
-<input type="email" id="email-field"
-       placeholder="Email address">
-
-<!-- Issue 3: Added visible error text marker -->
-<div class="error">
-  Error: Please enter a valid email address.
-</div>
-
-<div class="error">
-  Error: Password too short.
-</div>
-
-<button type="submit" class="submit-btn">
-  Create account
-</button>
-
-<!-- Issue 4: Replaced generic alt text -->
-<a href="/about" style="margin-top:16px; display:inline-block">
-  <img src=""
-       alt="About our university"
-       style="background:#e0eaff;width:80px;height:40px;border-radius:4px">
-</a>
-
+    function updateField(input, errorElement, valid, message) {
+      errorElement.hidden = valid;
+      input.setAttribute("aria-invalid", String(!valid));
+      if (!valid) errorElement.textContent = message;
+    }
+    email.addEventListener("input", () => {
+      const valid = email.value.trim() !== "" && email.validity.valid;
+      updateField(email, emailError, valid, "Please enter a valid email address.");
+      status.textContent = "";
+    });
+    password.addEventListener("input", () => {
+      const valid = password.value.length >= 8;
+      updateField(password, passwordError, valid, "Password must contain at least 8 characters.");
+      status.textContent = "";
+    });
+    toggle.addEventListener("click", () => {
+      const showing = password.type === "password";
+      password.type = showing ? "text" : "password";
+      toggle.setAttribute("aria-pressed", String(showing));
+      toggle.setAttribute("aria-label", showing ? "Hide password" : "Show password");
+    });
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const emailValid = email.value.trim() !== "" && email.validity.valid;
+      const passwordValid = password.value.length >= 8;
+      updateField(email, emailError, emailValid, "Please enter a valid email address.");
+      updateField(password, passwordError, passwordValid, "Password must contain at least 8 characters.");
+      if (!emailValid || !passwordValid) {
+        status.textContent = "Please correct the highlighted fields and try again.";
+        (emailValid ? password : email).focus();
+        return;
+      }
+      status.textContent = "Form validation successful. This demonstration does not create or send an account.";
+    });
+  </script>
 </body>
 </html>
