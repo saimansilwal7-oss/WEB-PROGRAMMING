@@ -1,11 +1,8 @@
 # Lighthouse screenshots
 
-Save the real Lighthouse report screenshots in this folder.
+Upload the two cleaned original screenshots supplied for Week 9.1 into this folder:
 
-Suggested filenames:
-- `initial-personal.png`
-- `improved-personal.png`
-- `initial-team.png`
-- `improved-team.png`
+- `personal-website-lighthouse.png` — personal website, Accessibility 95/100.
+- `team-4-lighthouse.png` — Team 4 project, Accessibility 100/100.
 
-Capture the full Lighthouse panel with the Accessibility category and score visible. Take the initial screenshots before making accessibility changes. Do not use mockups or manually edited scores.
+These are the scores shown in the supplied screenshots. They are not a verified before-and-after pair. Do not invent or relabel scores.
