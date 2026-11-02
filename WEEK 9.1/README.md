@@ -8,10 +8,11 @@
 5. Run Lighthouse again with the same settings and save the improved screenshot.
 6. Add both screenshots and a short list of the three fixes to the weekly task page.
 
-## Files
-- `accessibility_audit.html` — assignment task page and evidence checklist.
+## Files and folders
+- `accessibility_audit_report.html` — assignment task page and evidence checklist.
 - `skip_link_demo.html` — working example of a keyboard-accessible skip link.
-- `audit_report_template.md` — fill-in report for the real Lighthouse findings and scores.
+- `audit_fixes_checklist.md` — record the actual Lighthouse findings, changes, and scores.
+- `SCREENSHOTS/` — place the initial and improved Lighthouse screenshots here.
 
 ## Important
 Do not invent or pre-fill Lighthouse scores. Record the actual scores from your own runs. The three fixes must correspond to issues shown in your initial Lighthouse report.
