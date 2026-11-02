@@ -4,6 +4,12 @@
 **Audit date:** __________________  
 **Browser and version:** __________________
 
+## Implementation status before Lighthouse testing
+
+- Personal website: added a keyboard-visible skip link, a focus indicator, and placed the portfolio content inside one main landmark.
+- Team 4 project: a ready-to-apply HTML/CSS patch is saved in `team-project-accessibility-patch.md`. It still needs to be applied in the Team 4 repository.
+- Lighthouse scores and audit failures: not yet measured. Run the initial Accessibility-only audit and record the real findings below; do not treat the code improvements above as proof of specific Lighthouse failures.
+
 ## Baseline results
 
 | Site | Initial Accessibility score | Screenshot |
