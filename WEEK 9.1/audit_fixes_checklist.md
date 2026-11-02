@@ -1,54 +1,52 @@
 # Week 9.1 — Accessibility Fix Log
 
-**Audited site(s):** Personal website / Team project  
-**Audit date:** __________________  
-**Browser and version:** __________________
+**Audit date shown in supplied reports:** 1 November 2026  
+**Lighthouse version shown:** 13.6.0  
+**Audit category:** Accessibility
 
-## Implementation status before Lighthouse testing
+## Supplied Lighthouse results
 
-- Personal website: added a keyboard-visible skip link, a focus indicator, and placed the portfolio content inside one main landmark.
-- Team 4 project: a ready-to-apply HTML/CSS patch is saved in `team-project-accessibility-patch.md`. It still needs to be applied in the Team 4 repository.
-- Lighthouse scores and audit failures: not yet measured. Run the initial Accessibility-only audit and record the real findings below; do not treat the code improvements above as proof of specific Lighthouse failures.
-
-## Baseline results
-
-| Site | Initial Accessibility score | Screenshot |
+| Site | Accessibility score shown | Evidence |
 |---|---:|---|
-| Personal website | Not run yet | `SCREENSHOTS/initial-personal.png` |
-| Team project | Not run yet | `SCREENSHOTS/initial-team.png` |
+| Personal website | **95/100** | `SCREENSHOTS/personal-website-lighthouse.png` (provided screenshot) |
+| Team 4 project | **100/100** | `SCREENSHOTS/team-4-lighthouse.png` (provided screenshot) |
 
-## Fix at least three failing audits
+These are the scores visible in the two screenshots supplied for this assignment. They are recorded as observed results, not described as a before-and-after comparison. The screenshots show the manual-check section as well as the scores.
 
-Only list issues that actually appeared in the Lighthouse report.
+## Accessibility improvements implemented in the personal website
 
-| # | Lighthouse audit / problem | File or element changed | What was fixed | Retest |
-|---|---|---|---|---|
-| 1 | __________________ | __________________ | __________________ | Pending |
-| 2 | __________________ | __________________ | __________________ | Pending |
-| 3 | __________________ | __________________ | __________________ | Pending |
+The following code improvements are present in the personal website repository:
 
-Possible issues to investigate **if Lighthouse reports them**:
-- Images missing meaningful alternative text.
-- Form controls without accessible labels.
-- Insufficient text/background contrast.
-- Buttons or links without an accessible name.
-- Heading levels used out of order.
-- Missing or unclear page landmarks.
+| # | Improvement | Implementation | Verification status |
+|---|---|---|---|
+| 1 | Keyboard skip navigation | Added a first-focusable skip link targeting `#main-content`. | Code change made; keyboard test still required. |
+| 2 | Main content landmark | Wrapped the page content in one `<main id="main-content" tabindex="-1">` landmark. | Code change made; screen-reader/manual test still required. |
+| 3 | Visible keyboard focus | Added a clear `:focus-visible` outline and made the skip link visible on focus. | Code change made; keyboard test still required. |
 
-Do not claim these were failures unless they appear in your report.
+**Important distinction:** These are real code improvements already made to the personal website. The supplied Lighthouse screenshots do not show the failing-audit details, so they do not prove that these were the three failed Lighthouse audits. Do not describe them as report-derived failures unless an initial report with the failing-audit list confirms that.
 
-## Final results
+## Team 4 project
 
-| Site | Final Accessibility score | Screenshot |
-|---|---:|---|
-| Personal website | Not run yet | `SCREENSHOTS/improved-personal.png` |
-| Team project | Not run yet | `SCREENSHOTS/improved-team.png` |
+The Team 4 site was audited and the supplied screenshot shows **100/100**. No files in the Team 4 repository were changed. A proposed accessibility patch is retained in `team-project-accessibility-patch.md` for reference only; it is not applied because the assignment submission is being maintained in the student's own repository.
+
+## Before-and-after requirement
+
+The two supplied screenshots are current score evidence only. They do not establish a baseline-before-fixes and retest-after-fixes sequence. To complete that specific requirement, save an initial report captured before the changes and a fresh report after changes, using the same Lighthouse Accessibility-only settings. Do not relabel the supplied screenshots as initial/final unless their capture sequence is verified.
+
+## Manual checks still required
+
+- [ ] Use Tab / Shift+Tab to confirm logical keyboard order.
+- [ ] Confirm the skip link appears on focus and moves focus to the main content.
+- [ ] Confirm focus indicators remain visible on interactive controls.
+- [ ] Check page content with a screen reader if available.
+- [ ] Save original Lighthouse screenshots in this folder (the screenshot image files still need to be uploaded to GitHub).
 
 ## Submission checklist
-- [ ] Initial Lighthouse screenshot saved.
-- [ ] At least three real failing audits documented.
-- [ ] At least three fixes implemented.
-- [ ] Keyboard navigation checked.
-- [ ] Final Lighthouse screenshot saved.
-- [ ] Both screenshots posted to the weekly task page.
-- [ ] Three fixes listed with a short explanation.
+
+- [x] Personal website Accessibility score recorded: 95/100.
+- [x] Team 4 Accessibility score recorded: 100/100.
+- [x] Three implemented personal-site accessibility improvements documented.
+- [ ] Original screenshot image files uploaded to `SCREENSHOTS/`.
+- [ ] Three actual failed audits verified from the initial report (if required by the rubric).
+- [ ] Keyboard/manual accessibility checks completed.
+- [ ] A true before-and-after retest documented.
