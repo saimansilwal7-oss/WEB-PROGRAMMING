@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Week 9.1 Lighthouse accessibility audit report and submission tracker.">
+<meta name="description" content="Week 9.1 Lighthouse accessibility audit results and implementation record.">
 <title>Week 9.1 — Accessibility Audit</title>
 <style>
 :root{color-scheme:dark;--bg:#10151f;--panel:#192333;--line:#304158;--text:#edf4ff;--muted:#a9bad0;--accent:#8ce3cf;--gold:#ffd58a}
@@ -13,20 +13,18 @@ h1{font-size:clamp(2rem,6vw,3.7rem);line-height:1.08;margin:.4rem 0}h2{font-size
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:1.25rem;margin:1rem 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
 .score{font-size:2.8rem;font-weight:850;color:var(--gold);line-height:1.2}.tag{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:.2rem .65rem;color:var(--muted);font-size:.8rem}
 ol,ul{padding-left:1.3rem;color:var(--muted)}li{margin:.45rem 0}a{color:var(--accent)}code{background:#0d1420;padding:.15rem .35rem;border-radius:.3rem}.note{border-left:3px solid var(--gold);padding:.25rem .9rem}
+table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:.55rem;border-bottom:1px solid var(--line)}:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style></head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<header><p class="eyebrow">WEB PROGRAMMING · WEEK 9.1</p><h1>Lighthouse Accessibility Audit<span aria-hidden="true">.</span></h1><p>Before-and-after audit record, accessibility fixes, and submission checklist.</p><span class="tag">Real results only · Fill in after testing</span></header>
+<header><p class="eyebrow">WEB PROGRAMMING · WEEK 9.1</p><h1>Lighthouse Accessibility Audit<span aria-hidden="true">.</span></h1><p>Recorded Accessibility scores, implemented improvements, and remaining verification tasks.</p><span class="tag">Evidence-based report · Updated 2 November 2026</span></header>
 <main id="main-content" tabindex="-1">
-<section class="grid" aria-label="Audit score placeholders">
-<article class="panel"><h2>Initial score</h2><div class="score">— / 100</div><p>Enter the score from your first Accessibility-only Lighthouse run.</p></article>
-<article class="panel"><h2>Improved score</h2><div class="score">— / 100</div><p>Enter the score after implementing and retesting your fixes.</p></article></section>
-<section class="panel" aria-labelledby="workflow-title"><h2 id="workflow-title">Audit workflow</h2><ol><li>Run Lighthouse with the Accessibility category selected.</li><li>Save the initial report screenshot before editing the site.</li><li>Review the report and identify at least three real failing audits.</li><li>Fix the issues, then test keyboard navigation and visible focus.</li><li>Run Lighthouse again and save the improved report screenshot.</li><li>Post both screenshots and the fix list on the weekly task page.</li></ol></section>
-<section class="panel" aria-labelledby="fixes-title"><h2 id="fixes-title">Three-fix record</h2><p>Replace these prompts with the exact Lighthouse issue, affected element, and change made.</p><ol><li><strong>Fix 1:</strong> [Audit issue] → [Code change] → [Retest result]</li><li><strong>Fix 2:</strong> [Audit issue] → [Code change] → [Retest result]</li><li><strong>Fix 3:</strong> [Audit issue] → [Code change] → [Retest result]</li></ol></section>
-<section class="panel" aria-labelledby="skip-title"><h2 id="skip-title">Required skip link</h2><p>Add a skip link as the first focusable control on your course project. It should become visible on keyboard focus and target the main content landmark.</p><pre><code>&lt;a class="skip-link" href="#main-content"&gt;Skip to main content&lt;/a&gt;
-&lt;main id="main-content" tabindex="-1"&gt;
-  ...
-&lt;/main&gt;</code></pre><p class="note">Capture your initial baseline before adding this or any other fix. Do not enter invented scores or claim a fix without retesting it.</p></section>
-<section class="panel" aria-labelledby="screens-title"><h2 id="screens-title">Screenshot checklist</h2><ul><li>Initial report: <code>SCREENSHOTS/initial-personal.png</code> and/or <code>initial-team.png</code>.</li><li>Improved report: <code>SCREENSHOTS/improved-personal.png</code> and/or <code>improved-team.png</code>.</li></ul><p>Store the original Lighthouse screenshots in this folder and link them from your weekly task page.</p></section>
+<section class="grid" aria-label="Supplied Lighthouse scores">
+<article class="panel"><h2>Personal website</h2><div class="score">95 / 100</div><p>Score shown in the supplied Lighthouse screenshot.</p><p><a href="SCREENSHOTS/personal-website-lighthouse.png">Open personal website screenshot</a></p></article>
+<article class="panel"><h2>Team 4 project</h2><div class="score">100 / 100</div><p>Score shown in the supplied Lighthouse screenshot.</p><p><a href="SCREENSHOTS/team-4-lighthouse.png">Open Team 4 screenshot</a></p></article></section>
+<section class="panel" aria-labelledby="facts-title"><h2 id="facts-title">Audit details</h2><ul><li>Tool: Google Lighthouse</li><li>Version shown in report: 13.6.0</li><li>Capture date shown: 1 November 2026</li><li>Category: Accessibility</li></ul><p class="note">The screenshots show the current scores. They are not presented as a verified before-and-after comparison.</p></section>
+<section class="panel" aria-labelledby="fixes-title"><h2 id="fixes-title">Three accessibility improvements implemented</h2><ol><li><strong>Skip navigation:</strong> Added a keyboard-visible “Skip to main content” link targeting the main landmark.</li><li><strong>Main landmark:</strong> Added one main content landmark with <code>id="main-content"</code> and <code>tabindex="-1"</code>.</li><li><strong>Keyboard focus:</strong> Added a clear <code>:focus-visible</code> outline and focus styling for the skip link.</li></ol><p>These are verified code changes in the personal website. The supplied score screenshots do not include the failed-audit details, so these improvements are not claimed as three Lighthouse failures.</p></section>
+<section class="panel" aria-labelledby="team-title"><h2 id="team-title">Team 4 project</h2><p>The supplied audit screenshot shows 100/100. No source files in the Team 4 repository were changed. The optional patch is included in this assignment repository as a reference only.</p></section>
+<section class="panel" aria-labelledby="todo-title"><h2 id="todo-title">Final verification</h2><ul><li>Upload the original screenshots to <code>SCREENSHOTS/</code> using the filenames linked above.</li><li>Complete keyboard navigation and focus checks.</li><li>For a formal before-and-after comparison, retain a baseline captured before fixes and run a fresh audit after fixes using identical settings.</li><li>Record at least three actual failing audits only if they appear in that baseline report.</li></ul></section>
 </main><footer><p>Week 9.1 · Accessibility is part of the user experience.</p></footer></body></html>
