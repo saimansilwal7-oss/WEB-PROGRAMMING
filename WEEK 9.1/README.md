@@ -1,23 +1,37 @@
 # Week 9.1 — Lighthouse Accessibility Audit
 
-## Assignment tasks
-1. Run Lighthouse on the personal website and/or team project with **Accessibility only** selected.
-2. Record the initial Accessibility score and save the initial screenshot.
-3. Identify at least three failing accessibility audits from the actual report.
-4. Fix at least three reported issues.
-5. Run Lighthouse again with the same settings and save the improved screenshot.
-6. Add both screenshots and a short list of the three fixes to the weekly task page.
+## Recorded Lighthouse results
 
-## Files and folders
-- `accessibility_audit_report.html` — assignment task page and evidence checklist.
+| Site | Accessibility score shown in supplied report |
+|---|---:|
+| Personal website | **95/100** |
+| Team 4 project | **100/100** |
+
+The supplied screenshots show Lighthouse 13.6.0 and a capture date of 1 November 2026. These are recorded as observed scores, not as a verified before-and-after comparison.
+
+## Assignment files
+
+- `accessibility_audit_report.html` — updated report page with scores and the implemented accessibility improvements.
+- `audit_fixes_checklist.md` — score record, three implemented personal-site improvements, and remaining verification checklist.
 - `skip_link_demo.html` — working example of a keyboard-accessible skip link.
-- `audit_fixes_checklist.md` — record the actual Lighthouse findings, changes, and scores.
-- `team-project-accessibility-patch.md` — exact changes prepared for the Team 4 repository; apply them there before its final retest.
-- `SCREENSHOTS/` — place the initial and improved Lighthouse screenshots here.
+- `team-project-accessibility-patch.md` — optional patch reference only; the Team 4 repository was not modified.
+- `SCREENSHOTS/` — upload the two supplied screenshot image files here.
 
-## Important
-Do not invent or pre-fill Lighthouse scores. Record the actual scores from your own runs. The three fixes must correspond to issues shown in your initial Lighthouse report.
+## Three improvements implemented in the personal website
 
-## Sites
+1. Keyboard-visible skip-navigation link to the main content.
+2. A single main landmark with `id="main-content"` and `tabindex="-1"`.
+3. Visible keyboard focus styling using `:focus-visible`.
+
+These are actual code changes. The supplied score screenshots do not show failing audit details, so the three improvements are not falsely labelled as three Lighthouse failures.
+
+## Remaining submission steps
+
+1. Upload `personal-website-lighthouse.png` and `team-4-lighthouse.png` into `SCREENSHOTS/`.
+2. Complete keyboard/manual accessibility checks.
+3. If the rubric strictly requires three failed audits and a before/after comparison, preserve the initial failing-audit report and run a fresh post-fix audit with the same Accessibility-only settings.
+
+## Websites
+
 - Personal site: https://saimansilwal7-oss.github.io/saiman-silwal-202537200/
 - Team 4 project: https://sushant0101n-gif.github.io/team-4-project/
