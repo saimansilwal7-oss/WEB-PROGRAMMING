@@ -155,6 +155,9 @@ form.addEventListener("submit", event => {
   confirmPassword.setCustomValidity("");
   submitBtn.disabled = true;
 });
+
+// Validate restored/autofilled values when the page first loads.
+updateForm();
 </script>
 </body>
 </html>
