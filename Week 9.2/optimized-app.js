@@ -1,11 +1,24 @@
 "use strict";
+// The assignment website previews HTML inside a sandbox. Storage can be blocked
+// there, so use safe helpers and keep the demo working even without persistence.
+const storage = {
+  get(key) {
+    try { return localStorage.getItem(key); }
+    catch { return null; }
+  },
+  set(key, value) {
+    try { localStorage.setItem(key, value); }
+    catch { /* Preview-only mode: keep the app usable for this session. */ }
+  }
+};
+
 let transactions = [];
 try {
-  const saved = JSON.parse(localStorage.getItem("transactions") || "[]");
+  const saved = JSON.parse(storage.get("transactions") || "[]");
   transactions = Array.isArray(saved) ? saved : [];
 } catch { transactions = []; }
 
-let monthlyBudget = Number(localStorage.getItem("monthlyBudget") || 0);
+let monthlyBudget = Number(storage.get("monthlyBudget") || 0);
 if (!Number.isFinite(monthlyBudget) || monthlyBudget < 0) monthlyBudget = 0;
 
 const form = document.getElementById("transaction-form");
@@ -74,7 +87,7 @@ list.addEventListener("click", event => {
 });
 
 function save() {
-  localStorage.setItem("transactions", JSON.stringify(transactions));
+  storage.set("transactions", JSON.stringify(transactions));
   render();
 }
 
@@ -86,7 +99,7 @@ budgetForm.addEventListener("submit", event => {
     return;
   }
   monthlyBudget = amount;
-  localStorage.setItem("monthlyBudget", String(monthlyBudget));
+  storage.set("monthlyBudget", String(monthlyBudget));
   render();
   budgetForm.reset();
 });
