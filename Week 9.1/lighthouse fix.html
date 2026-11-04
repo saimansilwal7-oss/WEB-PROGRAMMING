@@ -6,11 +6,12 @@
   <meta name="description" content="Accessible sign-up form example with labels, named buttons, contrast, and validation feedback.">
   <title>Accessible Form Fixes | Week 9.1</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;padding:24px;font:16px/1.6 system-ui,sans-serif;color:#17243a;background:#f3f6fb}.card{width:min(100%,480px);margin:auto;padding:24px;border:1px solid #d8e1ed;border-radius:14px;background:#fff}h1{margin-top:0;font-size:1.8rem}.field{margin:18px 0}.field label{display:block;margin-bottom:6px;font-weight:700}.field input{width:100%;min-height:44px;padding:10px 12px;border:1px solid #64748b;border-radius:7px;font:inherit}.field input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #174a86;outline-offset:3px}.hint{display:block;margin-top:5px;color:#46566d;font-size:.9rem}.error{margin:6px 0;color:#a61b1b;font-size:.9rem}.button-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}button{min-height:44px;padding:10px 18px;border:0;border-radius:7px;background:#174a86;color:#fff;font:inherit;font-weight:700;cursor:pointer}button:hover{background:#123967}.icon-btn{width:44px;padding:0;background:#155e45;font-size:20px}#status{margin-top:16px;padding:12px;border-radius:7px;background:#edf4ff;color:#17243a}#status:empty{display:none}
+    *{box-sizing:border-box}.skip-link{position:absolute;top:8px;left:8px;z-index:10;padding:10px 14px;border-radius:7px;background:#17243a;color:#fff;transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}body{margin:0;padding:24px;font:16px/1.6 system-ui,sans-serif;color:#17243a;background:#f3f6fb}.card{width:min(100%,480px);margin:auto;padding:24px;border:1px solid #d8e1ed;border-radius:14px;background:#fff}h1{margin-top:0;font-size:1.8rem}.field{margin:18px 0}.field label{display:block;margin-bottom:6px;font-weight:700}.field input{width:100%;min-height:44px;padding:10px 12px;border:1px solid #64748b;border-radius:7px;font:inherit}.field input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #174a86;outline-offset:3px}.hint{display:block;margin-top:5px;color:#46566d;font-size:.9rem}.error{margin:6px 0;color:#a61b1b;font-size:.9rem}.button-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}button{min-height:44px;padding:10px 18px;border:0;border-radius:7px;background:#174a86;color:#fff;font:inherit;font-weight:700;cursor:pointer}button:hover{background:#123967}.icon-btn{width:44px;padding:0;background:#155e45;font-size:20px}#status{margin-top:16px;padding:12px;border-radius:7px;background:#edf4ff;color:#17243a}#status:empty{display:none}
   </style>
 </head>
 <body>
-  <main class="card">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content" class="card" tabindex="-1">
     <h1>Create your account</h1>
     <p>Example of accessible form controls and clear validation messages.</p>
     <form id="signup-form" novalidate>
