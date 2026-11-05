@@ -15,7 +15,7 @@ These files are individual assignment copies for the Team 4 Student Budget Track
 5. Build transaction rows in a `DocumentFragment`, replace the list once, and use one delegated click handler rather than creating a click listener for every delete button.
 
 ## Important
-The official screenshots currently show 100/100 before and 100/100 after. The before screenshot displays the proposal URL while the after screenshot displays the tracker page. They are not a controlled same-URL comparison. To demonstrate a measured improvement, run Lighthouse before and after on the same page URL using the prepared optimized page, and capture the full metric breakdown (FCP, LCP, Speed Index, TBT, CLS) and final score. No changes to the shared Team 4 repository are required for this individual assignment. Do not report a measured score increase until that test is completed.
+The saved before-audit screenshot shows a score of 100/100 on the proposal URL. The replacement after-audit screenshot is the latest PageSpeed Insights report for the Student Budget Tracker and shows Performance 98/100. Because the screenshots use different page URLs and test runs, they are not a controlled same-URL comparison and do not prove that the prepared optimization changes caused a score increase. To demonstrate a measured improvement, run Lighthouse before and after on the same page URL using the prepared optimized page, and capture the full metric breakdown (FCP, LCP, Speed Index, TBT, CLS) and final score. No changes to the shared Team 4 repository are required for this individual assignment. Do not report a measured score increase until that test is completed.
 
 
 ## Accessibility addition requested by the professor
