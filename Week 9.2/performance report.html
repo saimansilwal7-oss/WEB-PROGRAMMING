@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Week 9.2 Lighthouse performance audit and optimization report for the Team 4 Student Budget Tracker.">
+<title>Week 9.2 | Lighthouse Performance Report</title>
+<style>
+:root{color-scheme:light;--ink:#17233f;--muted:#586780;--blue:#2457d6;--line:#dce4f0;--paper:#fff;--bg:#f3f6fb;--green:#087c53}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+main{width:min(960px,calc(100% - 28px));margin:32px auto}.hero{padding:34px;border-radius:18px;background:#172554;color:white}.hero p{color:#dbeafe;margin:6px 0}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;font-weight:750;color:#80a8ff}.hero h1{margin:8px 0;font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.15}.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}.meta div{padding:12px;border-radius:10px;background:#ffffff16}.meta b{display:block;color:#bfdbfe;font-size:.75rem;text-transform:uppercase}.card{margin:18px 0;padding:24px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 25px #1725540a}h2{margin:0 0 12px;font-size:1.35rem}h3{margin:18px 0 7px;font-size:1.05rem}.score{display:flex;gap:14px;flex-wrap:wrap}.score div{flex:1;min-width:150px;padding:18px;text-align:center;border-radius:12px;background:#ecfdf5;border:1px solid #bbf7d0}.score strong{display:block;font-size:2.6rem;line-height:1.2;color:var(--green)}.shot{margin:14px 0;padding:10px;border:1px solid var(--line);border-radius:12px;background:#f8fafc}.shot img{display:block;width:100%;height:auto;border-radius:7px}.caption{font-weight:700;margin:4px 0 8px}.note{padding:14px 16px;border-left:4px solid #2563eb;background:#eff6ff;border-radius:7px}.warning{padding:14px 16px;border-left:4px solid #d97706;background:#fffbeb;border-radius:7px}.change{padding:14px 0;border-top:1px solid var(--line)}.change:first-of-type{border-top:0}.change pre{overflow:auto;padding:12px;border-radius:8px;background:#111827;color:#e5e7eb;font:13px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}code{background:#eef2ff;padding:2px 5px;border-radius:4px}ul{padding-left:22px}li{margin:6px 0}.muted{color:var(--muted)}.actions{text-align:center;margin:22px}.actions button{padding:12px 20px;border:0;border-radius:8px;background:var(--blue);color:white;font-weight:700;font-size:1rem;cursor:pointer}footer{text-align:center;color:var(--muted);padding:10px 0 30px}
+.skip-link{position:absolute;top:8px;left:8px;z-index:20;padding:10px 14px;border-radius:7px;background:#17243a;color:#fff;transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}
+@media(max-width:600px){main{margin:14px auto}.hero,.card{padding:19px}.meta{grid-template-columns:1fr}}
+@media print{body{background:white}.card,.hero{box-shadow:none;break-inside:avoid}.actions{display:none}main{width:100%;margin:0}.shot img{max-height:8.5in;object-fit:contain}}
+</style>
+</head>
+<body><a class="skip-link" href="#main-content">Skip to main content</a><main id="main-content" tabindex="-1">
+<header class="hero"><p class="eyebrow">Web Programming · Week 9.2</p><h1>Lighthouse Performance Audit</h1><p>Team 4 — Student Budget Tracker</p><div class="meta"><div><b>Student</b>SILWAL SAIMAN</div><div><b>Student ID</b>202537200</div><div><b>University</b>Gachon University</div><div><b>Project role</b>CSS and responsive design</div></div></header>
+<section class="card"><h2>1. Goal and latest audit summary</h2>
+<p>The assignment target is a Lighthouse Performance score of at least <strong>80/100</strong> (bonus target: 90+). The latest PageSpeed Insights report for the Team 4 Student Budget Tracker recorded <strong>98/100</strong>, exceeding both targets.</p>
+<p><strong>Audited URL:</strong> <a href="https://sushant0101n-gif.github.io/team-4-project/" target="_blank" rel="noopener noreferrer">https://sushant0101n-gif.github.io/team-4-project/</a></p>
+<p><strong>Report generated:</strong> 5 November 2026, 12:15 PM (GMT+9). Test profile: emulated Moto G Power, slow 4G throttling, initial page load, Lighthouse 13.6.0.</p>
+<div class="score"><div><strong>98</strong>Latest Performance score</div><div><strong>100</strong>Latest Accessibility score</div></div>
+<p class="note">The same report recorded Best Practices 100/100 and SEO 90/100. It showed no real-user field data, so these are Lighthouse lab results rather than field measurements.</p>
+<h3>Latest performance metrics</h3>
+<ul><li>First Contentful Paint: <strong>0.8 s</strong></li><li>Largest Contentful Paint: <strong>0.8 s</strong></li><li>Total Blocking Time: <strong>0 ms</strong></li><li>Cumulative Layout Shift: <strong>0</strong></li><li>Speed Index: <strong>3.8 s</strong></li></ul>
+<h3>Current opportunities</h3>
+<ul><li>Render-blocking requests — estimated savings of 300 ms.</li><li>Use efficient cache lifetimes — estimated savings of 5 KiB.</li></ul>
+</section>
+<section class="card"><h2>2. Before audit evidence</h2><p class="caption">Screenshot A — saved before-audit score</p><div class="shot"><img src="Screenshots/lighthouse-before.png" alt="Saved historical before-audit screenshot from the proposal page; not a same-URL comparison with the current tracker audit"></div><p class="caption">Screenshot B — Lighthouse opportunities</p><div class="shot"><img src="Screenshots/lighthouse-errors.png" alt="Lighthouse opportunities including image delivery savings and render blocking"></div><ul><li>Image delivery opportunity: estimated savings about 1,748 KiB.</li><li>Render-blocking requests: estimated delay about 230 ms.</li><li>LCP request discovery and network dependency chain were also flagged.</li></ul><p class="note">These opportunities belong to the saved audit evidence. They identify potential savings; they do not prove that each item was a critical failure on the tracker page itself.</p></section>
+<section class="card"><h2>3. Five optimization changes prepared</h2><p class="warning"><strong>Implementation status:</strong> I prepared the exact optimized source files in this Week 9.2 folder. These are individual assignment copies stored in this personal repository. They demonstrate the prepared optimizations without modifying the shared Team 4 repository.</p>
+<div class="change"><h3>1. Defer the application JavaScript</h3><p>Allow the browser to finish parsing HTML before running the application script.</p><pre>&lt;script src="optimized-app.js" defer&gt;&lt;/script&gt;</pre></div>
+<div class="change"><h3>2. Remove the large remote CSS background image</h3><p>The current stylesheet requests a large Unsplash background image. The prepared CSS uses a lightweight gradient instead, avoiding an extra external image request.</p><pre>body { background: linear-gradient(135deg, #eff4ff, #e8faf6); }</pre></div>
+<div class="change"><h3>3. Remove expensive card backdrop blur</h3><p>Removing the blur filter reduces extra rendering/compositing work on card surfaces while keeping the white card appearance.</p><pre>/* Removed: backdrop-filter: blur(12px); */</pre></div>
+<div class="change"><h3>4. Calculate totals in one pass</h3><p>Replace two full-array filter/reduce chains with one loop that totals income and expenses together.</p><pre>let income = 0, expenses = 0;
+for (const transaction of transactions) {
+  const amount = Number(transaction.amount) || 0;
+  if (transaction.type === "income") income += amount;
+  else if (transaction.type === "expense") expenses += amount;
+}</pre></div>
+<div class="change"><h3>5. Batch DOM updates and delegate delete clicks</h3><p>Build transaction rows in a DocumentFragment, insert them together, and use one listener on the list instead of one listener per Delete button.</p><pre>const fragment = document.createDocumentFragment();
+// create each row and append it to fragment
+list.replaceChildren(fragment);
+
+list.addEventListener("click", event =&gt; {
+  const button = event.target.closest("button[data-index]");
+  if (!button) return;
+  // validate index, remove transaction, then save
+});</pre></div>
+<p>Ready-to-review files: <code>optimized-index.html</code>, <code>optimized-app.js</code>, <code>optimized-style.css</code>, and <code>optimization-patches.md</code>.</p></section>
+<section class="card"><h2>4. Accessibility improvement: skip to main content</h2><p>The optimized page now includes a keyboard-accessible skip link before the header. Keyboard users can press Tab to reveal it and activate it to move directly to the main landmark.</p><pre>&lt;a class="skip-link" href="#main-content"&gt;Skip to main content&lt;/a&gt;
+
+&lt;main id="main-content" tabindex="-1"&gt;
+  ...page content...
+&lt;/main&gt;</pre><p>This is an additional accessibility improvement alongside the five performance optimizations. It does not replace the required fresh Lighthouse performance re-test.</p></section>
+<section class="card"><h2>5. After audit evidence</h2><p class="caption">Screenshot C — latest PageSpeed Insights audit screenshot</p><div class="shot"><img src="Screenshots/lighthouse-after.png" alt="Latest PageSpeed Insights report screenshot showing a Performance score of 98 out of 100"></div><p>The latest PageSpeed Insights PDF records 98/100 Performance for the Team 4 tracker, above the assignment target. The older saved before/after screenshots show different page URLs, so they are not a controlled comparison and do not prove that the five prepared changes caused a score increase. The optimized copies remain in this personal assignment folder and have not been merged into the shared team repository.</p><div class="shot"><p class="caption">Screenshot D — historical temporary local check (not official final evidence)</p><img src="Screenshots/lighthouse-temporary-check.png" alt="Temporary local Lighthouse check screenshot"></div></section>
+<section class="card"><h2>6. Reflection</h2><p>The most promising change for reducing initial page weight is removing the large remote background image, because it avoids downloading an additional image before the page can feel complete. Deferring JavaScript should also help avoid blocking HTML parsing. The JavaScript changes improve efficiency when transaction lists grow, while the visual CSS simplification can reduce rendering work.</p><p class="muted">The actual impact of each change must be confirmed by running Lighthouse again under the same conditions. The latest Team 4 tracker report shows 98/100. The historical screenshots show different URLs, so there is no honest basis to claim the prepared code changes caused a measured score increase.</p></section>
+<section class="card"><h2>7. Final verification checklist</h2><ul><li>Saved before and after Lighthouse screenshots included.</li><li>Five concrete optimization patches documented with code snippets.</li><li>Skip-to-main-content link added to the optimized page and report.</li><li>Latest Team 4 tracker score is 98/100, exceeding the target of 80.</li><li>A same-URL re-test with the prepared optimized page and full metric breakdown is still required to demonstrate a measured performance improvement. No changes to the shared Team 4 repository are required for this individual assignment.</li></ul></section>
+<div class="actions"><button type="button" onclick="window.print()">Print / Save as PDF</button></div>
+<footer>Team 4 Student Budget Tracker · Web Programming · Prepared by SILWAL SAIMAN</footer>
+</main></body></html>

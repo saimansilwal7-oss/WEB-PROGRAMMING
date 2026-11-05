@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Optimized Student Budget Tracker demo for Week 9.2.">
+  <title>Team 4 - Student Budget Tracker</title>
+  <link rel="stylesheet" href="optimized-style.css">
+  <style>
+    .skip-link{position:absolute;top:8px;left:8px;z-index:20;padding:10px 14px;border-radius:7px;background:#17243a;color:#fff;transform:translateY(-160%)}
+    .skip-link:focus{transform:translateY(0)}
+    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script src="optimized-app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header>
+    <h1>💰 Student Budget Tracker</h1>
+    <p>Manage your money, one step at a time.</p>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <section class="summary" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="visually-hidden">Financial summary</h2>
+      <div class="card"><h3>Total Balance</h3><p id="balance">₩0</p></div>
+      <div class="card"><h3>Income</h3><p id="income">₩0</p></div>
+      <div class="card"><h3>Expenses</h3><p id="expenses">₩0</p></div>
+    </section>
+    <section class="card">
+      <h2>Monthly Budget</h2>
+      <form id="budget-form">
+        <label for="budget-limit">Set your budget (KRW)</label>
+        <input type="number" id="budget-limit" min="1" placeholder="Example: 500000" required>
+        <button type="submit">Save Budget</button>
+      </form>
+      <p>Monthly budget: <strong id="budget-total">₩0</strong></p>
+      <p>Money spent: <strong id="budget-spent">₩0</strong></p>
+      <p id="budget-message" role="status" aria-live="polite">Set a budget to get started.</p>
+      <progress id="budget-progress" value="0" max="100" aria-label="Monthly budget used" aria-describedby="budget-message"></progress>
+    </section>
+    <section class="card">
+      <h2>Add Transaction</h2>
+      <form id="transaction-form">
+        <label for="description">Description</label>
+        <input id="description" placeholder="e.g. Lunch" required>
+        <label for="amount">Amount (KRW)</label>
+        <input id="amount" type="number" min="1" placeholder="e.g. 10000" required>
+        <label for="type">Transaction Type</label>
+        <select id="type"><option value="income">Income</option><option value="expense">Expense</option></select>
+        <label for="category">Category</label>
+        <select id="category"><option value="Food">Food</option><option value="Transport">Transport</option><option value="Housing">Housing</option><option value="Education">Education</option><option value="Other">Other</option></select>
+        <button type="submit">Add Transaction</button>
+      </form>
+    </section>
+    <section class="card">
+      <h2>Transaction History</h2>
+      <ul id="transactions" aria-live="polite" aria-relevant="additions removals"></ul>
+    </section>
+  </main>
+  <footer>Team 4 · Gachon University · Computer Engineering</footer>
+</body>
+</html>

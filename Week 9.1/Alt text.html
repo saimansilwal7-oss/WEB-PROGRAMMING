@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive examples of useful, decorative, and functional image alternative text.">
+  <title>Image Alt Text Practice | Week 9.1</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:24px;font:16px/1.6 system-ui,sans-serif;color:#17243a;background:#f3f6fb}.wrap{width:min(100%,760px);margin:auto}header,.example{padding:20px;margin:0 0 16px;border:1px solid #d8e1ed;border-radius:14px;background:#fff}h1{margin:0 0 6px;font-size:clamp(1.6rem,5vw,2.2rem)}h2{margin:0 0 8px;font-size:1.1rem}p{margin:6px 0}.demo-image{display:block;width:100%;max-width:360px;height:auto;margin:12px 0;border:1px solid #d8e1ed;border-radius:8px}.decorative{border:0}.link-image{display:inline-flex;align-items:center;gap:10px;padding:10px;border-radius:8px;background:#edf4ff}.link-image:focus-visible,button:focus-visible{outline:3px solid #174a86;outline-offset:3px}button{padding:11px 18px;border:0;border-radius:8px;background:#155e45;color:#fff;font:inherit;font-weight:700;cursor:pointer}button:hover{background:#104b37}#feedback{margin-top:14px;padding:14px;border-radius:8px;background:#edf4ff;color:#17243a}#feedback:empty{display:none}.hint{color:#46566d;font-size:.92rem}
+  .skip-link{position:absolute;top:8px;left:8px;z-index:20;padding:10px 14px;border-radius:7px;background:#17243a;color:#fff;transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}\n  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content" class="wrap" tabindex="-1">
+    <header><h1>Image Alternative Text</h1><p>Week 9.1 · Practice meaningful alt text for informational, decorative, and functional images.</p></header>
+    <section class="example">
+      <h2>1. Informational image</h2>
+      <p class="hint">The alt text describes the important information in the image.</p>
+      <img class="demo-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='240' viewBox='0 0 640 240'%3E%3Crect width='640' height='240' fill='%23dceafe'/%3E%3Cpath d='M0 190L160 70l110 100 100-85 270 105v50H0' fill='%237da6d8'/%3E%3Crect x='235' y='85' width='170' height='105' rx='5' fill='%23fff'/%3E%3Cpath d='M220 90l100-65 100 65' fill='none' stroke='%23174a86' stroke-width='12'/%3E%3Ctext x='320' y='145' font-size='23' text-anchor='middle' fill='%23174a86' font-family='Arial'%3ECAMPUS%3C/text%3E%3C/svg%3E" alt="Illustration of a university campus building with hills in the background.">
+      <p><strong>Alt text:</strong> “Illustration of a university campus building with hills in the background.”</p>
+    </section>
+    <section class="example">
+      <h2>2. Decorative image</h2>
+      <p class="hint">The decorative wave adds visual style but carries no information, so it uses an empty alt attribute.</p>
+      <img class="demo-image decorative" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='90' viewBox='0 0 640 90'%3E%3Cpath d='M0 45 Q80 0 160 45 T320 45 T480 45 T640 45' fill='none' stroke='%23087e83' stroke-width='12'/%3E%3C/svg%3E" alt="">
+      <p><strong>Alt text:</strong> Empty (<code>alt=""</code>) because the image is decorative.</p>
+    </section>
+    <section class="example">
+      <h2>3. Functional image inside a link</h2>
+      <p class="hint">The alt text describes the link's destination or action, not just how the image looks.</p>
+      <a class="link-image" href="https://www.gachon.ac.kr/" target="_blank" rel="noopener noreferrer">
+        <img width="64" height="64" alt="Visit Gachon University website" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' rx='10' fill='%23dceafe'/%3E%3Cpath d='M12 29L32 12l20 17v23H12z' fill='%23174a86'/%3E%3Crect x='27' y='37' width='10' height='15' fill='white'/%3E%3C/svg%3E">
+        <span>Gachon University website ↗</span>
+      </a>
+    </section>
+    <section class="example">
+      <h2>4. Data image</h2>
+      <p class="hint">The alt text communicates the chart's key values. The visible text below also provides the same information.</p>
+      <img class="demo-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='260' viewBox='0 0 640 260'%3E%3Crect width='640' height='260' fill='%23fff'/%3E%3Cpath d='M70 210H590M70 30V210' stroke='%2346556d' stroke-width='2'/%3E%3Crect x='130' y='105' width='90' height='105' fill='%2384a9df'/%3E%3Crect x='290' y='78' width='90' height='132' fill='%23087e83'/%3E%3Crect x='450' y='52' width='90' height='158' fill='%23174a86'/%3E%3Ctext x='175' y='235' text-anchor='middle' font-size='17' fill='%2317243a'%3E2024%3C/text%3E%3Ctext x='335' y='235' text-anchor='middle' font-size='17' fill='%2317243a'%3E2025%3C/text%3E%3Ctext x='495' y='235' text-anchor='middle' font-size='17' fill='%2317243a'%3E2026%3C/text%3E%3C/svg%3E" alt="Bar chart showing an upward trend across three years: 2024, 2025, and 2026.">
+      <p><strong>Chart values:</strong> 2024 — 1,200 students; 2025 — 1,400 students; 2026 — 1,476 students.</p>
+    </section>
+    <section class="example">
+      <h2>Test the alt attributes</h2>
+      <p class="hint">Select the button to check every image on this page for an alt attribute and display its value.</p>
+      <button type="button" id="check-button">Check my alt text</button>
+      <div id="feedback" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+  <script>
+    "use strict";
+    const checkButton = document.getElementById("check-button");
+    const feedback = document.getElementById("feedback");
+    checkButton.addEventListener("click", () => {
+      const images = Array.from(document.querySelectorAll("img"));
+      const lines = images.map((image, index) => {
+        if (!image.hasAttribute("alt")) return "Image " + (index + 1) + ": missing alt attribute.";
+        const value = image.getAttribute("alt");
+        return value === "" ? "Image " + (index + 1) + ": empty alt (decorative image)." :
+          "Image " + (index + 1) + ": " + value;
+      });
+      feedback.textContent = lines.join("\n");
+      feedback.style.whiteSpace = "pre-line";
+    });
+  </script>
+</body>
+</html>
