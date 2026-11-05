@@ -45,11 +45,11 @@
       <div class="fix"><h3>1. Accessible button names</h3><p>Use meaningful visible button text whenever possible. Icon-only buttons should have a clear accessible name, such as an appropriate <code>aria-label</code>.</p></div>
       <div class="fix"><h3>2. Color contrast</h3><p>Choose readable foreground and background color combinations and verify them with an accessibility checker.</p></div>
       <div class="fix"><h3>3. Heading hierarchy</h3><p>Organize headings in a logical order, starting with one page-level heading and using the next heading levels for nested sections.</p></div>
-      <div class="fix"><h3>4. Keyboard skip link</h3><p>Add a skip link that becomes visible on keyboard focus and moves users directly to the main content.</p></div>
+      <div class="fix"><h3>4. Skip to main content</h3><p>A visible-on-focus keyboard link is now placed before the page content. It targets the main landmark, which can receive focus directly.</p><p><code>&lt;a class="skip-link" href="#main-content"&gt;Skip to main content&lt;/a&gt;</code></p><p><code>&lt;main id="main-content" tabindex="-1"&gt;...&lt;/main&gt;</code></p></div>
     </section>
     <section>
       <h2>Before and after screenshots</h2>
-      <p class="note">The screenshots below document the audit results saved for this assignment. Lighthouse automated checks are useful, but they do not replace manual keyboard and screen-reader testing.</p>
+      <p class="note">The screenshots below are the previously saved audit evidence. The skip-link update has now been added to the report and practice pages, so run Lighthouse again on the final target page and replace the final screenshot with a fresh capture. Automated checks do not replace manual keyboard and screen-reader testing.</p>
       <div class="screenshots">
         <figure class="screenshot-card"><figcaption><strong>Initial audit</strong><br>Accessibility score: 81/100</figcaption><img src="Initial%20screenshot.png" alt="Initial Lighthouse report showing an accessibility score of 81 out of 100 and accessibility issues." loading="lazy"></figure>
         <figure class="screenshot-card"><figcaption><strong>Final audit</strong><br>Accessibility score: 100/100</figcaption><img src="final%20ss.png" alt="Final Lighthouse report showing an accessibility score of 100 out of 100." loading="lazy"></figure>
