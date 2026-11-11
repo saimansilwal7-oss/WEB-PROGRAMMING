@@ -17,8 +17,8 @@ This folder records the Week 10.2 deployment assignment for the portfolio create
 
 ## Lighthouse evidence
 All three Lighthouse screenshots have been uploaded to the [`Screenshots`](./Screenshots/) folder:
-1. `Week10-2_Lighthouse_Overall_Scores.png` — overall Lighthouse category scores
-2. `Week10-2_Lighthouse_Performance_Metrics.png` — performance metrics
-3. `Week10-2_Lighthouse_Accessibility_Evidence.png` — accessibility audit evidence
+1. `Overall-Scores.png` — overall Lighthouse category scores
+2. `Performance-Metrics.png` — performance metrics
+3. `Accessibility-Evidence.png` — accessibility audit evidence
 
 The portfolio source and live deployment remain in the separate `portfolio` repository. This folder keeps the Week 10.2 submission record alongside the other weekly assignments.
