@@ -9,7 +9,7 @@
 - **Repository:** [saimansilwal7-oss/portfolio](https://github.com/saimansilwal7-oss/portfolio)
 - **Live GitHub Pages site:** [Open portfolio](https://saimansilwal7-oss.github.io/portfolio/)
 - **Default branch:** `main`
-- **Commit history:** 18 commits were previously verified on GitHub; the repository continues to show its commit history.
+- **Commit history:** 20 commits are currently visible on GitHub, exceeding the 5+ requirement.
 - **Portfolio content:** student name and introduction, profile photograph with descriptive alt text, learning/technical skills, and two course project links (Web Programming and Team 4).
 - **Deployment:** GitHub Pages deployment is configured.
 
