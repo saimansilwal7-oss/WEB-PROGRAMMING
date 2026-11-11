@@ -9,6 +9,10 @@ This folder contains the Week 10.1 assignment archive and evidence for E1, E2, E
 
 ## Homework 1 — Personal Portfolio submission report
 - [Open the portfolio submission report](./homework-portfolio-report.html)
+- [Open the report on the weekly GitHub Pages site](https://saimansilwal7-oss.github.io/WEB-PROGRAMMING/Week%2010.1/homework-portfolio-report.html)
+
+## Professor's reference example
+- [Reference Week 10.1 submission example](https://kahlen2008.github.io/webprogramming/week%2010/week%2010_1/)
 
 ## Professor's Week 10.1 requirements
 - [Git workflow checklist and completion report](./git-workflow-checklist.md)
@@ -17,7 +21,7 @@ This folder contains the Week 10.1 assignment archive and evidence for E1, E2, E
 - [Coursework evidence pull request #1 — merged](https://github.com/saimansilwal7-oss/WEB-PROGRAMMING/pull/1)
 
 ## Archived portfolio source
-- `index.html` — semantic portfolio page
+- `index.html` — semantic portfolio page and Week 10.1 report navigation link
 - `styles.css` — responsive styling
 - `script.js` — JavaScript interactions, including the theme toggle
 
