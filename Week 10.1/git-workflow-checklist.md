@@ -9,49 +9,53 @@
 - **Repository:** [saimansilwal7-oss/portfolio](https://github.com/saimansilwal7-oss/portfolio)
 - **Live GitHub Pages site:** [Open portfolio](https://saimansilwal7-oss.github.io/portfolio/)
 - **Default branch:** `main`
-- **Commit history:** 18 commits currently visible on GitHub (requirement: 5+)
-- **Portfolio content:** student name and introduction, profile photograph, learning/technical skills, and links to two course/team projects.
-- **Deployment:** GitHub Pages deployment workflow is configured.
+- **Commit history:** 18 commits were previously verified on GitHub; the repository continues to show its commit history.
+- **Portfolio content:** student name and introduction, profile photograph with descriptive alt text, learning/technical skills, and two course project links (Web Programming and Team 4).
+- **Deployment:** GitHub Pages deployment is configured.
 
 ## E1 — Create Your First Repository
 
-The portfolio repository is public and has an initial commit, followed by incremental commits for the README, homepage, profile photo, navigation, theme toggle, responsive styling, accessibility improvements, and deployment workflow.
+The public portfolio repository has an initial root commit and subsequent incremental commits.
 
 - [Initial commit](https://github.com/saimansilwal7-oss/portfolio/commit/ccd3117b7940417fcf79f13572ffa22fa0f420fe)
 - [Full commit history](https://github.com/saimansilwal7-oss/portfolio/commits/main/)
 
 ## E2 — Create a Branch and Merge It
 
-A dedicated feature branch was created in the coursework repository, a workflow evidence file was added, and the change was submitted through a pull request and merged into `main`.
+The workflow is now demonstrated directly in the portfolio repository, matching the professor's example:
 
-- **Branch:** `feature/week10-git-workflow-evidence`
-- [Pull Request #1 — merged](https://github.com/saimansilwal7-oss/WEB-PROGRAMMING/pull/1)
-- [Merged evidence file](./git-branch-merge-evidence.md)
+- **Feature branch:** `feature/week10-git-workflow`
+- A focused evidence document was committed on the feature branch.
+- [Portfolio Pull Request #1 — merged](https://github.com/saimansilwal7-oss/portfolio/pull/1)
+- [E2 evidence document](https://github.com/saimansilwal7-oss/portfolio/blob/main/week10-git-workflow-evidence.md)
+
+An additional coursework evidence PR is also available:
+- [WEB-PROGRAMMING Pull Request #1 — merged](https://github.com/saimansilwal7-oss/WEB-PROGRAMMING/pull/1)
 
 ## E3 — Push Your Repo to GitHub
 
-The portfolio repository is hosted publicly on GitHub with a `main` branch and a visible commit history. GitHub confirms the remote repository exists and contains the portfolio commits.
+The student completed the terminal verification in GitHub Codespaces using the portfolio repository workspace.
 
-**Local terminal verification still required:** GitHub's website cannot prove which commands were run on a student's own computer. If the repository is already cloned locally, run:
-
+Commands executed:
 ```bash
 git remote -v
-git branch -M main
+git branch --show-current
 git push -u origin main
+git status -sb
 ```
 
-The first command should show the portfolio repository URL for both fetch and push. If no `origin` appears, add it once:
+Reported results:
+- `git remote -v` ran successfully and showed `origin` pointing to the portfolio GitHub repository.
+- `git branch --show-current` returned `main`.
+- `git push -u origin main` succeeded; the remote tracking branch is `origin/main` and was already up to date.
+- `git status -sb` showed `## main...origin/main`.
 
-```bash
-git remote add origin https://github.com/saimansilwal7-oss/portfolio.git
-```
-
-Then run the push command again.
+The status output also showed an uncommitted change in `README.md` in the Codespaces workspace. This does not invalidate the successful push, but the change should be reviewed before committing. No unrequested changes were committed.
 
 ## Final status
 
-- Homework 1 portfolio and 5+ commit requirement: **completed**
-- E1 repository and initial commit evidence: **present**
-- E2 feature branch and merged pull request: **completed**
-- E3 GitHub remote and hosted repository: **present; local terminal output should be captured as final proof**
-
+- Homework 1 portfolio, content, deployment, and 5+ commit threshold: **covered**
+- E1 initial repository and root commit: **verified on GitHub**
+- E2 feature branch and merged pull request in the portfolio repository: **completed**
+- E3 remote, current branch, push, and upstream tracking: **verified in Codespaces**
+- Screenshot of terminal output: **optional supporting evidence still recommended if the instructor specifically requires screenshots**
